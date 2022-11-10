@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-12 text-center">
         <h3 class="pt-3">Our Categories</h3>
-        <router-link id="add-category" :to="{name : 'AddCategory'}" v-show="$route.name=='AdminCategory'">
+        <router-link id="add-category" :to="{name : 'AddCategory'}" v-show="$route.name=='Category'">
           <button class="btn">Add a new Category</button>
         </router-link>
       </div>
@@ -18,22 +18,20 @@
 </template>
 
 <script>
-/* eslint-disable */
-import CategoryBox from '../../components/Category/CategoryBox';
+import CategoryBox from '../../components/Category/CategoryBox.vue';
 import axios from 'axios';
 export default {
   name: 'Category',
   components : {CategoryBox},
   data() {
     return {
-      baseURL : "https://limitless-lake-55070.herokuapp.com/",
+      baseURL : "http://localhost:4320",
       categories : null,
     }
   },
   methods: {
     async getCategories() {
-      //fetch categories
-      await axios.get(this.baseURL + "category/")
+      await axios.get(`${this.baseURL}/category/`)
       .then(res => this.categories = res.data)
       .catch(err => console.log(err))
     }

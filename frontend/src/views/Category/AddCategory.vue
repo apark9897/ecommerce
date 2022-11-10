@@ -11,7 +11,7 @@
        <div class="col-md-6 px-5 px-md-0">
         <form>
           <div class="form-group">
-            <label>Category Name</label>
+            <label>Name</label>
             <input type="text" class="form-control" v-model="categoryName" required>
           </div>
           <div class="form-group">
@@ -35,7 +35,7 @@ import axios from 'axios';
 import swal from 'sweetalert';
 
 export default {
-  data(){
+  data() {
     return {
       categoryName : null,
       description : null,
@@ -51,11 +51,11 @@ export default {
         imageUrl : this.imageURL,
       };
 
-      const baseURL =  "https://limitless-lake-55070.herokuapp.com/";
+      const baseURL = "http://localhost:4320";
 
       await axios({
         method: 'post',
-        url: baseURL+"category/create",
+        url: `${baseURL}/category/create`,
         data : JSON.stringify(newCategory),
         headers: {
           'Content-Type': 'application/json'
@@ -76,9 +76,9 @@ export default {
           closeOnClickOutside: false,
         });
       });
-    },
-    mounted(){
     }
+  },
+  mounted() {
   }
 }
 </script>

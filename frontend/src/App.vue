@@ -1,10 +1,53 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div>
+    <Navbar />
+    <div style="min-height: 60vh">
+      <router-view v-if="products && categories"
+         :baseURL="baseURL"
+         :products="products"
+         :categories="categories"
+         @fetchData = "fetchData">
+      </router-view>
+    </div>
+    <Footer />
+  </div>
 </template>
+
+<script>
+import axios from 'axios';
+import Navbar from "./components/Navbar.vue"
+import Footer from "./components/Footer.vue"
+export default {
+  data() {
+    return {
+      baseURL : "http://localhost:4320",
+      products : null,
+      categories : null
+    }
+  },
+  emits: ['fetchData'],
+  components : { Navbar, Footer},
+  methods : {
+    async fetchData() {
+      // fetch products
+      await axios.get(`${this.baseURL}/product/`)
+              .then(res => this.products = res.data)
+              .catch(err => console.log(err))
+
+      //fetch categories
+      await axios.get(`${this.baseURL}/category/`)
+              .then((res) => {
+                this.categories = res.data;
+              })
+              .catch(err => console.log(err))
+    }
+  },
+  mounted() {
+    console.log("main app view loaded");
+    this.fetchData();
+  }
+}
+</script>
 
 <style>
 #app {

@@ -7,6 +7,9 @@
     <div class="card-body">
       <h5 class="card-title">{{category.categoryName}}</h5>
       <p class="card-text font-italic">{{category.description.substring(0,65)}}...</p>
+      <router-link :to="{name: 'EditCategory', params: {id: category.id}}">
+        <button class="btn">Edit</button>
+      </router-link>
     </div>
   </div>
 </template>
