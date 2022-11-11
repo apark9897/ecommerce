@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 <!--    Logo-->
-    <router-link class="navbar-brand" :to="{name : 'home'}">
+    <router-link class="navbar-brand" :to="{name : 'Home'}">
       <img id="logo" src="../assets/icon.png" />
     </router-link>
 
@@ -26,8 +26,8 @@
         </div>
       </form>
         <div>
-            <router-link style="color: white" :to="{name : 'Category'}">
-                Category
+            <router-link style="color: white" :to="{name : 'Admin'}">
+                Admin
             </router-link>
         </div>
     </div>

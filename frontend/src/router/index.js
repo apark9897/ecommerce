@@ -1,26 +1,26 @@
 /* eslint-disable */
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Home from '../views/Home.vue'
 import AddCategory from '../views/Category/AddCategory.vue'
 import Category from '../views/Category/Category.vue'
 import EditCategory from "../views/Category/EditCategory.vue";
 import Product from '../views/Product/Product.vue'
 import EditProduct from "../views/Product/EditProduct.vue"
 import AddProduct from "../views/Product/AddProduct.vue"
+import Admin from '../views/Admin.vue'
+import ShowDetails from '../views/Product/ShowDetails.vue'
+import ListProducts from '../views/Category/ListProducts.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'Home',
+    component: Home
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/admin',
+    name: 'Admin',
+    component: Admin
   },
   {
     path: "/admin/category/add",
@@ -51,6 +51,16 @@ const routes = [
     path: "/admin/product/:id",
     name: "EditProduct",
     component: EditProduct
+  },
+  {
+    path: "/product/show/:id",
+    name: "ShowDetails",
+    component: ShowDetails
+  },
+  {
+    path: "/category/show/:id",
+    name: "ListProducts",
+    component: ListProducts
   }
 ]
 
