@@ -1,18 +1,17 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-<!--    Logo-->
+    <!-- Logo -->
     <router-link class="navbar-brand" :to="{name : 'Home'}">
       <img id="logo" src="../assets/icon.png" />
     </router-link>
 
-<!--    Burger Button-->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-     aria-expanded="false" aria-label="Toggle navigation">
+    <!-- Burger Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-<!--      Search Bar-->
+      <!-- Search Bar -->
       <form class="form-inline ml-auto mr-auto">
         <div class="input-group">
           <input size="100" type="text" class="form-control" placeholder="Search Items" aria-label="Username" aria-describedby="basic-addon1">
@@ -25,11 +24,19 @@
           </div>
         </div>
       </form>
-        <div>
-            <router-link style="color: white" :to="{name : 'Admin'}">
-                Admin
-            </router-link>
-        </div>
+      <!-- dropdown for browse -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarAccount" data-toggle="dropdown">Account</a>
+          <div class="dropdown-menu">
+            <router-link class="dropdown-item" :to="{name:'Signup'}">Sign up</router-link>
+            <router-link class="dropdown-item" :to="{name:'Signin'}">Sign in</router-link>
+          </div>
+        </li>
+        <li class="nav-item dropdown"></li>
+        <li class="nav-item dropdown"></li>
+      </ul>
+      <!-- dropdown for account -->
     </div>
   </nav>
 
