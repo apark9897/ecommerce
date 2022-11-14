@@ -29,8 +29,9 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarAccount" data-toggle="dropdown">Account</a>
           <div class="dropdown-menu">
-            <router-link class="dropdown-item" :to="{name:'Signup'}">Sign up</router-link>
-            <router-link class="dropdown-item" :to="{name:'Signin'}">Sign in</router-link>
+            <router-link class="dropdown-item" v-if="!token" :to="{name:'Signup'}">Sign up</router-link>
+            <router-link class="dropdown-item" v-if="!token" :to="{name:'Signin'}">Sign in</router-link>
+            <a class="dropdown-item" v-if="token" :to="{name:'Signin'}" href="#" @click="signout">Sign out</a>
           </div>
         </li>
         <li class="nav-item dropdown"></li>
@@ -51,7 +52,25 @@ export default {
     }
   },
   methods: {
+    signout() {
+      localStorage.removeItem('token');
+      this.token = null;
+      this.$router.push({name:'Home'});
+      swal({
+        text: "Sign out successful!",
+        icon: "success",
+        closeOnClickOutside: false,
+      });
+    }
   },
+  mounted() {
+    this.token = localStorage.getItem('token');
+  },
+  watch: {
+    '$route'() {
+      this.token = localStorage.getItem('token');
+    }
+  }
 }
 </script>
 

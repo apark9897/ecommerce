@@ -13,7 +13,11 @@
               <label>Password</label>
               <input type="password" class="form-control" v-model="password" required />
             </div>
-            <button class="btn btn-primary mt-2 py-0">Log In</button>
+            <button class="btn btn-primary mt-2 py-0">Log In
+              <div v-if="loading" class="spinner-border spinner-border-sm" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </button>
           </form>
         </div>
       </div>
@@ -29,27 +33,36 @@ export default {
   data() {
     return {
       email: null,
-      password: null
+      password: null,
+      loading: null
     }
   },
   methods: {
     async signin(e) {
       e.preventDefault();
+      this.loading = true;
       const body = {
         email: this.email,
         password: this.password
       };
       axios.post(`${this.baseURL}/user/signin`, body)
-      .then(() => {
-        this.$router.push('Home');
+      .then((res) => {
+        localStorage.setItem('token', res.data.token);
+        this.$router.push({name: 'Home'});
         swal({
           text: "User signin successful!",
           icon: "success",
           closeOnClickOutside: false,
         });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err))
+      .finally(() => {
+        this.loading = false;
+      });
     }
+  },
+  mounted() {
+    this.loading = false;
   }
 }
 </script>
