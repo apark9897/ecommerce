@@ -32,10 +32,12 @@
             <router-link class="dropdown-item" v-if="!token" :to="{name:'Signup'}">Sign up</router-link>
             <router-link class="dropdown-item" v-if="!token" :to="{name:'Signin'}">Sign in</router-link>
             <a class="dropdown-item" v-if="token" :to="{name:'Signin'}" href="#" @click="signout">Sign out</a>
+            <router-link class="dropdown-item" v-if="token" :to="{name : 'Wishlist'}" >Wishlist</router-link>
           </div>
         </li>
-        <li class="nav-item dropdown"></li>
-        <li class="nav-item dropdown"></li>
+        <li class="nav-item">
+          <router-link class="text-light" :to="{name : 'Cart'}"><i class="fa fa-shopping-cart" style="font-size:36px"></i></router-link>
+        </li>
       </ul>
       <!-- dropdown for account -->
     </div>
