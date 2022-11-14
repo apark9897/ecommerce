@@ -27,6 +27,24 @@
       <!-- dropdown for browse -->
       <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarAccount"
+            data-toggle="dropdown"
+          >
+            Admin
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarAccount">
+            <router-link class="dropdown-item" :to="{ name: 'Product' }"
+              >Product
+            </router-link>
+            <router-link class="dropdown-item" :to="{ name: 'Category' }"
+              >Category
+            </router-link>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarAccount" data-toggle="dropdown">Account</a>
           <div class="dropdown-menu">
             <router-link class="dropdown-item" v-if="!token" :to="{name:'Signup'}">Sign up</router-link>
