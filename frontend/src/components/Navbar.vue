@@ -28,7 +28,7 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item dropdown">
           <a
-            class="nav-link dropdown-toggle"
+            class="nav-link dropdown-toggle text-light"
             href="#"
             id="navbarAccount"
             data-toggle="dropdown"
@@ -45,7 +45,7 @@
           </div>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarAccount" data-toggle="dropdown">Account</a>
+          <a class="nav-link dropdown-toggle text-light" href="#" id="navbarAccount" data-toggle="dropdown">Account</a>
           <div class="dropdown-menu">
             <router-link class="dropdown-item" v-if="!token" :to="{name:'Signup'}">Sign up</router-link>
             <router-link class="dropdown-item" v-if="!token" :to="{name:'Signin'}">Sign in</router-link>
@@ -54,7 +54,13 @@
           </div>
         </li>
         <li class="nav-item">
-          <router-link class="text-light" :to="{name : 'Cart'}"><i class="fa fa-shopping-cart" style="font-size:36px"></i></router-link>
+          <div id="cart" style="position:relative">
+            <span id="nav-cart-count"> {{cartCount}} </span>
+            <router-link class="text-light" :to="{name : 'Cart'}">
+              <i class="fa fa-shopping-cart" style="font-size:36px"></i>
+            </router-link>
+          </div>
+          
         </li>
       </ul>
       <!-- dropdown for account -->
@@ -66,6 +72,7 @@
 <script>
 export default {
   name : "Navbar",
+  props: ["cartCount"],
   data() {
     return {
       token: null
@@ -81,6 +88,7 @@ export default {
         icon: "success",
         closeOnClickOutside: false,
       });
+      this.$emit("resetCartCount");
     }
   },
   mounted() {
@@ -110,5 +118,19 @@ export default {
     border-color: #febd69;
     border-top-right-radius: 2px;
     border-bottom-right-radius: 2px;
+  }
+
+  #nav-cart-count {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+    font-size: 15px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    margin-left: 10px;
   }
 </style>

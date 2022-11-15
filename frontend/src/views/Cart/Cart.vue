@@ -24,7 +24,7 @@
             <input size="1" class="p-0 h-25 border-bottom border-top-0 border-left-0 border-right-0" v-model="cartItem.quantity" /></p>
           <p id="item-total-price" class="mb-0">Total : <span class="font-weight-bold"> $ {{cartItem.product.price*cartItem.quantity}}</span></p>
           <!--       1. make a function deleteItem and pass cartitem.id and trigger it on click  -->
-          <br><a href="#" @click="deleteItem(cartItem.id)">Remove From Cart</a>
+          <br><a href="#" class="text-right" @click="deleteItem(cartItem.id)">Remove From Cart</a>
         </div>
       </div>
       <div class="col-2"></div>
@@ -34,7 +34,7 @@
     <!-- display total price -->
     <div class="total-cost pt-2 text-right">
       <h5>Total : $ {{totalcost}}</h5>
-      <button :disabled="isDisabled()" type="button" class="btn btn-primary confirm" >Confirm Order</button>
+      <button :disabled="isDisabled()" type="button" class="btn btn-primary confirm" @click="checkout" >Confirm Order</button>
     </div>
   </div>
 </template>
@@ -81,11 +81,15 @@ export default {
             icon: "success",
             closeOnClickOutside: false,
           });
+          this.$emit("fetchData");
         }
       },
       (error)=>{
         console.log(error)
       });
+    },
+    checkout() {
+      this.$router.push({name: 'Checkout'})
     }
   },
 

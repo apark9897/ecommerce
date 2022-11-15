@@ -54,6 +54,7 @@ export default {
           icon: "success",
           closeOnClickOutside: false,
         });
+        this.$emit("fetchData");
       })
       .catch((err) => console.log(err))
       .finally(() => {

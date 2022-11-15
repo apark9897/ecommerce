@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Navbar />
+    <Navbar :cartCount="cartCount" @resetCartCount="resetCartCount" />
     <div style="min-height: 60vh">
       <router-view v-if="products && categories"
          :baseURL="baseURL"
@@ -22,7 +22,9 @@ export default {
     return {
       baseURL : "http://localhost:4320",
       products : null,
-      categories : null
+      categories : null,
+      token: null,
+      cartCount: null
     }
   },
   emits: ['fetchData'],
@@ -40,10 +42,21 @@ export default {
                 this.categories = res.data;
               })
               .catch(err => console.log(err))
+      //fetch cart items if logged in
+      if (this.token) {
+        await axios.get(`${this.baseURL}/cart/?token=${this.token}`)
+          .then((res) => {
+            this.cartCount = res.data.cartItems.length;
+          })
+          .catch(err => console.log(err))
+      }
+    },
+    resetCartCount() {
+      this.cartCount = 0;
     }
   },
   mounted() {
-    console.log("main app view loaded");
+    this.token = localStorage.getItem("token");
     this.fetchData();
   }
 }

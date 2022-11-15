@@ -95,6 +95,7 @@ export default {
             icon: "success",
             closeOnClickOutside: false,
           });
+          this.$emit("fetchData");
         }
       },(error) =>{
         // error handling
