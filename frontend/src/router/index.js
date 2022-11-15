@@ -18,6 +18,7 @@ import Success from "../views/Payment/Success.vue";
 import Failed from "../views/Payment/Failed.vue";
 import Checkout from "../views/Checkout/Checkout.vue"
 import OrderHistory from "../views/Order/OrderHistory.vue";
+import OrderDetails from '../views/Order/OrderDetails.vue';
 
 const routes = [
   {
@@ -109,6 +110,11 @@ const routes = [
     path: '/orders',
     name: 'OrderHistory',
     component: OrderHistory
+  },
+  {
+    path: '/orders/:id',
+    name: 'OrderDetails',
+    component: OrderDetails
   }
 ]
 

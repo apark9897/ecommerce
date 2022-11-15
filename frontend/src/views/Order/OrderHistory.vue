@@ -15,7 +15,7 @@
       <div class="col-md-5 px-3">
         <div class="card-block px-3">
           <h6 class="card-title">
-            <router-link v-bind:to="'/order/' + order.id">Order No : {{ order.id }}</router-link>
+            <router-link v-bind:to="'/orders/' + order.id">Order No : {{ order.id }}</router-link>
           </h6>
           <p class="mb-0">{{ order.totalItems }} item<span v-if="order.totalItems > 1">s</span></p>
           <p id="item-price" class="mb-0 font-weight-bold">Total Cost : $ {{ order.totalCost }}</p>

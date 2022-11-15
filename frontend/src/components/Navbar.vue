@@ -50,6 +50,7 @@
             <router-link class="dropdown-item" v-if="!token" :to="{name:'Signup'}">Sign up</router-link>
             <router-link class="dropdown-item" v-if="!token" :to="{name:'Signin'}">Sign in</router-link>
             <a class="dropdown-item" v-if="token" :to="{name:'Signin'}" href="#" @click="signout">Sign out</a>
+            <router-link class="dropdown-item" v-if="token" :to="{name : 'OrderHistory'}" >Orders</router-link>
             <router-link class="dropdown-item" v-if="token" :to="{name : 'Wishlist'}" >Wishlist</router-link>
           </div>
         </li>
