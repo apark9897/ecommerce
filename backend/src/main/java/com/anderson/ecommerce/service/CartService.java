@@ -48,4 +48,8 @@ public class CartService {
         }
         cartRepository.delete(cartItem);
     }
+
+    public void deleteUserCartItems(User user) {
+        cartRepository.deleteByUser(user);
+    }
 }
