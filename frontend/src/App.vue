@@ -20,7 +20,7 @@ import Footer from "./components/Footer.vue"
 export default {
   data() {
     return {
-      baseURL : "http://localhost:4320",
+      baseURL : process.env.VUE_APP_API_URL,
       products : null,
       categories : null,
       token: null,

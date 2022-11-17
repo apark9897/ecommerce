@@ -1,0 +1,34 @@
+version: '3'
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:8080"
+    environment:
+      - "STRIPE_PUBLIC_KEY="
+      - "VUE_APP_API_URL=http://localhost:4320"
+    depends_on:
+      - backend
+
+  backend:
+    build: ./backend
+    ports:
+      - "4320:4320"
+    environment:
+      - "SPRING_DATASOURCE_URL=jdbc:mysql://database:3306/ecommerce"
+      - "MYSQL_USER=root"
+      - "MYSQL_PASSWORD=password"
+      - "STRIPE_SECRET_KEY="
+    depends_on:
+      - database
+
+  database:
+    container_name: mysqldb
+    image: mysql:8.0.31
+    environment:
+      - "MYSQL_ROOT_PASSWORD=password"
+      - "MYSQL_DATABASE=ecommerce"
+    ports:
+      - "3300:3306"
+    volumes:
+      - "./init.sql:/docker-entrypoint-initdb.d/init.sql"

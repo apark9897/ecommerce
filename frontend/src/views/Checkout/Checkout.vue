@@ -18,7 +18,7 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      stripeAPIToken: '',
+      stripeAPIToken: process.env.STRIPE_PUBLIC_KEY,
       stripe: '',
       token: null,
       sessionId: null,
