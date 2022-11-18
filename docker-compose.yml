@@ -20,7 +20,8 @@ services:
       - "MYSQL_PASSWORD=password"
       - "STRIPE_SECRET_KEY="
     depends_on:
-      - database
+      database:
+        condition: service_healthy
 
   database:
     container_name: mysqldb
@@ -32,3 +33,9 @@ services:
       - "3300:3306"
     volumes:
       - "./init.sql:/docker-entrypoint-initdb.d/init.sql"
+    healthcheck:
+      test: "/usr/bin/mysql --user=root --password=password --execute \"SHOW TABLES FROM ecommerce;\""
+      interval: 10s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
