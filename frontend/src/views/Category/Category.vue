@@ -1,10 +1,10 @@
 <template>
-  <div class="container">
+  <div class="container pt-5">
     <div class="row">
       <div class="col-12 text-center">
-        <h3 class="pt-3">Our Categories</h3>
+        <h3 class="py-2">Our Categories</h3>
         <router-link id="add-category" :to="{name : 'AddCategory'}" v-show="$route.name=='Category'">
-          <button class="btn">Add a new Category</button>
+          <button class="btn btn-dark">Add a new Category</button>
         </router-link>
       </div>
     </div>
@@ -23,6 +23,7 @@ import axios from 'axios';
 export default {
   name: 'Category',
   components : {CategoryBox},
+  props: ["baseURL"],
   data() {
     return {
       categories : null,

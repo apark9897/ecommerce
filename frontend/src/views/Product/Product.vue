@@ -1,10 +1,10 @@
 <template>
-  <div class="container">
+  <div class="container pt-5">
     <div class="row">
       <div class="col-12 text-center" v-if="products">
-        <h3 class="pt-3">Our Products</h3>
+        <h3 class="py-2">Our Products</h3>
         <router-link id="add-product" :to="{name: 'AddProduct'}">
-          <button class="btn">Add a new Product</button>
+          <button class="btn btn-dark rounded">Add a new Product</button>
         </router-link>
       </div>
     </div>
@@ -22,11 +22,10 @@ import ProductBox from '@/components/Product/ProductBox.vue';
 export default {
     data() {
         return {
-            baseURL: "http://localhost:4320",
             products: null,
         };
     },
-    props: [],
+    props: ["baseURL"],
     methods: {
         async getProducts() {
             await axios.get(`${this.baseURL}/product/`)
