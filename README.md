@@ -1,10 +1,10 @@
 # Ecommerce Demo
 An ecommerce website I built to practice full-stack app dev
 
-![home page](https://github.com/apark9897/ecommerce/blob/main/ecommerce_homepage.png?raw=true)
-![product details](https://github.com/apark9897/ecommerce/blob/main/ecommerce_productpage.png?raw=true)
-![signup](https://github.com/apark9897/ecommerce/blob/main/ecommerce_signup.png?raw=true)
-![order page](https://user-images.githubusercontent.com/47507106/86501452-cb599a80-bd4d-11ea-9c69-3ca95072d8f4.png)
+![home page](https://github.com/apark9897/ecommerce/blob/main/mockups/ecommerce_homepage.png?raw=true)
+![product details](https://github.com/apark9897/ecommerce/blob/main/mockups/ecommerce_productpage.png?raw=true)
+![signup](https://github.com/apark9897/ecommerce/blob/main/mockups/ecommerce_signup.png?raw=true)
+![order page](https://github.com/apark9897/ecommerce/blob/main/mockups/ecommerce_orderspage.png?raw=true)
 
 ## Features
 - Browse different categories and products 
