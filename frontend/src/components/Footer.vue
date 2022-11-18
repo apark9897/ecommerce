@@ -78,7 +78,8 @@ a {
 }
 
 #logo {
-  width: 450px;
+  max-width: 100%;
+  max-height: 100px;
 }
 
 footer {
