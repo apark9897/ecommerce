@@ -32,7 +32,7 @@
         <div class="col-md-3 col-6">
           <ul style="list-style-type: none">
             <li class="text-light font-weight-bold">Let Us Help You</li>
-            <li><a class="footer-link font-weight-light" href="#">Return Centre</a></li>
+            <li><a class="footer-link font-weight-light" href="#">Return Center</a></li>
             <li><a class="footer-link font-weight-light" href="#">100% Purchase Protection</a><br></li>
             <li><a class="footer-link font-weight-light" href="#">Help</a><br></li>
             <li><a class="footer-link font-weight-light" href="#">App Download</a><br></li>
@@ -43,7 +43,7 @@
       <div class="row">
         <div class="col-12">
           <div class="text-center py-5">
-            <img id="logo" src="../assets/icon.png" />
+            <img id="logo" src="../assets/logo-removebg_landscape.png" />
           </div>
         </div>
       </div>
@@ -78,7 +78,7 @@ a {
 }
 
 #logo {
-  width: 150px;
+  width: 450px;
 }
 
 footer {

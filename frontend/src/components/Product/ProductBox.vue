@@ -35,6 +35,10 @@ export default {
   object-fit: cover;
 }
 
+a {
+  text-decoration: none;
+}
+
 .card-title {
   color: #484848;
   font-size: 1.1rem;

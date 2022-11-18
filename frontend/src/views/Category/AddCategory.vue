@@ -51,11 +51,9 @@ export default {
         imageUrl : this.imageURL,
       };
 
-      const baseURL = "http://localhost:4320";
-
       await axios({
         method: 'post',
-        url: `${baseURL}/category/create`,
+        url: `${this.baseURL}/category/create`,
         data : JSON.stringify(newCategory),
         headers: {
           'Content-Type': 'application/json'

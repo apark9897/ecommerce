@@ -2,7 +2,7 @@
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <!-- Logo -->
     <router-link class="navbar-brand" :to="{name : 'Home'}">
-      <img id="logo" src="../assets/icon.png" />
+      <img id="logo" src="../assets/logo.png" />
     </router-link>
 
     <!-- Burger Button -->
@@ -56,7 +56,7 @@
         </li>
         <li class="nav-item">
           <div id="cart" style="position:relative">
-            <span id="nav-cart-count"> {{cartCount}} </span>
+            <span id="nav-cart-count" v-if="cartCount"> {{cartCount}} </span>
             <router-link class="text-light" :to="{name : 'Cart'}">
               <i class="fa fa-shopping-cart" style="font-size:36px"></i>
             </router-link>
@@ -105,9 +105,9 @@ export default {
 
 <style scoped>
   #logo {
-    width: 150px;
-    margin-left: 20px;
-    margin-right: 20px;
+    width: 50px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
   .nav-link {

@@ -1,38 +1,27 @@
 <template>
   <div id="home">
-    <div id="background-div" class="page-holder bg-cover">
-      <div class="container">
-        <header class="text-left text-white py-5">
-          <h3 class="mb-4" id="heading">
-            <a href="#start-shopping" class="bg-white px-2 py-2 rounded"> Start shopping</a>
-          </h3>
-          <p class="lead mb-0 bg-dark p-1 rounded"> Demo text</p>
-        </header>
-      </div>
+    <div id="background-div">
+      <img id="background-img" src="../assets/home.png" />
     </div>
     <!-- display categories -->
-    <div id="start-shopping" class="container py-2">
+    <div id="start-shopping" class="container pt-5">
       <div class="row">
-        <div class="col-12 text-left">
-          <h2 class="pt-3">Top Categories</h2>
-        </div>
+        <h2 class="col-12 py-2">Top Categories</h2>
       </div>
       <div class="row" v-if="categorySize">
         <div v-for="i in categorySize" :key="i" class="col-md-6 col-xl-4 col-12 pt-3 justify-content-around d-flex">
-          <CategoryBox :category="categories[i-1]"></CategoryBox>
+          <CategoryBox :category="categories[i - 1]"></CategoryBox>
         </div>
       </div>
     </div>
     <!-- display products -->
-    <div class="container py-2">
+    <div class="container pt-5">
       <div class="row">
-        <div class="col-12 text-left">
-          <h2 class="pt-3">Top Products</h2>
-        </div>
+        <h2 class="col-12 py-2">Top Products</h2>
       </div>
       <div class="row" v-if="productSize">
         <div v-for="i in productSize" :key="i" class="col-md-6 col-xl-4 col-12 pt-3 justify-content-around d-flex">
-          <ProductBox :product="products[i-1]"></ProductBox>
+          <ProductBox :product="products[i - 1]"></ProductBox>
         </div>
       </div>
     </div>
@@ -62,17 +51,22 @@ export default {
   },
 }
 </script>
-<style>
-.page-holder {
-  min-height: 100vh;
-}
+<style scoped>
 #background-div {
-  background: url("../assets/home.png");
+  position: absolute;
 }
-.bg-cover {
-  background-size: cover !important;
+
+#background-img {
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0));
+  max-width: 100%;
 }
-#heading {
-  font-weight: 400;
+
+h2 {
+  width: max-content;
 }
+
+.header {
+  text-align: center;
+}
+
 </style>
