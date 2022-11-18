@@ -2,8 +2,7 @@
 An ecommerce website I built to practice full-stack app dev
 
 ![home page](https://github.com/apark9897/ecommerce/blob/main/mockups/ecommerce_homepage.png?raw=true)
-![product details](https://github.com/apark9897/ecommerce/blob/main/mockups/ecommerce_productpage.png?raw=true)
-![signup](https://github.com/apark9897/ecommerce/blob/main/mockups/ecommerce_signup.png?raw=true)
+![cart](https://github.com/apark9897/ecommerce/blob/main/mockups/ecommerce_cart.png?raw=true)
 ![order page](https://github.com/apark9897/ecommerce/blob/main/mockups/ecommerce_orderspage.png?raw=true)
 
 ## Features
