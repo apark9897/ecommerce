@@ -17,6 +17,9 @@ import com.stripe.Stripe;
 import com.stripe.exception.StripeException;
 import com.stripe.model.checkout.Session;
 import com.stripe.param.checkout.SessionCreateParams;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -29,7 +32,7 @@ import java.util.List;
 @Transactional
 public class OrderService {
 
-
+    Logger logger = (Logger) LoggerFactory.getLogger(OrderService.class);
     @Autowired
     private CartService cartService;
 

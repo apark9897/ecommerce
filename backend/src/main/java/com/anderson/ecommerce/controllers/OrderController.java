@@ -33,7 +33,7 @@ public class OrderController {
     public ResponseEntity<StripeResponse> checkoutList(@RequestBody List<CheckoutItemDto> checkoutItemDtoList) throws StripeException {
         // create the stripe session
         Session session = orderService.createSession(checkoutItemDtoList);
-        StripeResponse stripeResponse = new StripeResponse(session.getId());
+        StripeResponse stripeResponse = new StripeResponse(session.getId(), session.getUrl());
         // send the stripe session id in response
         return new ResponseEntity<StripeResponse>(stripeResponse, HttpStatus.OK);
     }

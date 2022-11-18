@@ -67,7 +67,7 @@ export default {
         };
         axios.post(`${this.baseURL}/user/signup`, user)
         .then(() => {
-          this.$router.push('Home');
+          this.$router.push({name: 'Home'});
           swal({
             text: "User signup successful!",
             icon: "success",

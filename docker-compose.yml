@@ -19,6 +19,7 @@ services:
       - "MYSQL_USER=root"
       - "MYSQL_PASSWORD=password"
       - "STRIPE_SECRET_KEY="
+      - "VUE_APP_URL=http://localhost:8080"
     depends_on:
       database:
         condition: service_healthy

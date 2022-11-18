@@ -18,7 +18,7 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      stripeAPIToken: process.env.STRIPE_PUBLIC_KEY,
+      stripeAPIToken: `${process.env.STRIPE_PUBLIC_KEY}`,
       stripe: '',
       token: null,
       sessionId: null,
@@ -48,7 +48,7 @@ export default {
       axios.post(`${this.baseURL}/order/create-checkout-session`, this.checkoutBodyArray)
       .then((res) => {
         localStorage.setItem("sessionId", res.data.sessionId);
-        this.stripe.redirectToCheckout({ sessionId: res.data.sessionId })
+        window.location = res.data.redirectUrl;
       })
     },
     /* Includes Stripe.js dynamically */
